@@ -3,7 +3,7 @@
     <p>{{num}}</p>
     <button @click.prevent="increment()">Click ++</button>
     <hr />
-    <input name="phrase" v-model="phrase"/>
+<!--    <input name="phrase" v-model="phrase"/>-->
   </div>
 </template>
 
@@ -15,13 +15,11 @@ export default {
   name: "App",
   components: {Index},
   setup (){
-   const {
-     state:{num, phrase, reversedPhrase}, actions:{increment}} = useVal()
+    const {
+      state:{num}, actions:{increment}} = useVal()
 
     return {
-     num,
-      phrase,
-      reversedPhrase,
+      num,
       increment
     }
   }
