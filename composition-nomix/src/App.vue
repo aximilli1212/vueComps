@@ -8,18 +8,18 @@
     <input type="text" v-model="phrase" /> <br />
     <p>Phrase: {{phrase}}</p> <br />
     <p>Reversed Phrase: {{reversedPhrase}}</p> <br />
-<!--    <app-alert :user="user"/>-->
+    <app-alert :user="user"/>
   </div>
 </template>
-<script>
+<script >
 import {useVal} from "./useVal";
 import AppAlert from "./components/Alert"
 
 export default {
   name: "App",
-  // components: {
-  //   AppAlert
-  // },
+  components: {
+    AppAlert
+  },
   setup (){
    const {
      state:{num, phrase, reversedPhrase, double, user}, actions:{increment}} = useVal()
