@@ -10,10 +10,11 @@
     <p>Reversed Phrase: {{reversedPhrase}}</p> <br />
     <app-alert />
     <button  ref="btn" type="button"> Hit me </button>
+    <button  ref="btnon" type="button"> Hit me on</button>
   </div>
 </template>
 <script >
-import {onBeforeMount, onMounted} from "vue";
+import {onBeforeMount, onMounted, ref} from "vue";
 import {useVal} from "./useVal";
 import AppAlert from "./components/Alert.vue"
 
@@ -26,12 +27,22 @@ export default {
    const {
      state:{num, phrase, reversedPhrase, double, user, btn}, actions:{increment}} = useVal()
 
+    const btnon = ref(null)
+
+
     onBeforeMount(()=>{
       console.log("on Before Mount.")
     })
 
     onMounted(()=>{
       console.log("onMounted hook runned.")
+      btn.value.addEventListener("click", ()=>{
+        console.log("ref button was clicked")
+      })
+      console.log("Button data Set:: ",btnon)
+      btnon.value.addEventListener("click", ()=>{
+        console.log("ref button on was clicked")
+      })
     })
 
     return {
@@ -40,7 +51,9 @@ export default {
       phrase,
       reversedPhrase,
       double,
-      user
+      user,
+      btnon,
+      btn
     }
   }
 };
