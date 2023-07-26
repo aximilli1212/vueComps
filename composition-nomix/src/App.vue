@@ -8,12 +8,14 @@
     <input type="text" v-model="phrase" /> <br />
     <p>Phrase: {{phrase}}</p> <br />
     <p>Reversed Phrase: {{reversedPhrase}}</p> <br />
-    <app-alert :user="user"/>
+    <app-alert />
+    <button  ref="btn" type="button"> Hit me </button>
   </div>
 </template>
 <script >
+import {onBeforeMount, onMounted} from "vue";
 import {useVal} from "./useVal";
-import AppAlert from "./components/Alert"
+import AppAlert from "./components/Alert.vue"
 
 export default {
   name: "App",
@@ -22,7 +24,15 @@ export default {
   },
   setup (){
    const {
-     state:{num, phrase, reversedPhrase, double, user}, actions:{increment}} = useVal()
+     state:{num, phrase, reversedPhrase, double, user, btn}, actions:{increment}} = useVal()
+
+    onBeforeMount(()=>{
+      console.log("on Before Mount.")
+    })
+
+    onMounted(()=>{
+      console.log("onMounted hook runned.")
+    })
 
     return {
      num,

@@ -4,14 +4,21 @@ export const useVal = ()=>{
     let num = ref(0)
     let phrase = ref("")
     let reversedPhrase = ref("")
+    let btn = ref(null)
+
 
     const user = reactive({
-        name:"Adenosine",
+        name:"John",
         address: "Triphosphate"
     })
 
+    setTimeout(()=>{
+        user.name = "Luis"
+    }, 3000)
+
     const increment = () => {
         num.value+=3
+        user.name = "Luis"
     }
 
     const double = computed(()=>{
@@ -37,7 +44,8 @@ export const useVal = ()=>{
             user,
             phrase,
             reversedPhrase,
-            double
+            double,
+            btn
         },
         actions:{
             increment,
