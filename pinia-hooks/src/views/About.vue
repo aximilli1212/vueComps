@@ -9,12 +9,10 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { useRoute, useRouter } from "vue-router";
 import {useCounterStore} from "../stores/counter";
 
-export default {
-  setup() {
     const route = useRoute(); // this.$route
     const router = useRouter(); // this.$router
     const store = useCounterStore();
@@ -23,11 +21,6 @@ export default {
 
     router.push({
       hash: "#test",
-    });
+    })
 
-    return {
-     store
-    };
-  },
-};
 </script>
