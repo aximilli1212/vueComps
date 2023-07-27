@@ -1,4 +1,4 @@
-import {reactive, ref, watchEffect} from "vue";
+import {reactive, ref, watch, watchEffect, computed} from "vue";
 
 export const useVal = ()=>{
     let num = ref(0)
@@ -14,12 +14,20 @@ export const useVal = ()=>{
         num.value+=3
     }
 
+    const double = computed(()=>{
+        return num.value*5
+    })
+
     const changeName = ()=>{
         user.name   = "John"
         user.address = "Madina"
     }
 
-    watchEffect(()=>{
+    // watchEffect(()=>{
+    //     reversedPhrase.value = phrase.value.split("").reverse().join("")
+    // })
+
+    watch([phrase], ([newVal, oldVal]) =>{
         reversedPhrase.value = phrase.value.split("").reverse().join("")
     })
 
@@ -30,7 +38,8 @@ export const useVal = ()=>{
             num,
             user,
             phrase,
-            reversedPhrase
+            reversedPhrase,
+            double
         },
         actions:{
             increment,
