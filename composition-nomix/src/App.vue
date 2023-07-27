@@ -2,20 +2,26 @@
   <div>
     <p>{{num}}</p>
     <button @click.prevent="increment()">Click ++</button>
+    <hr />
+    <input name="phrase" v-model="phrase"/>
   </div>
 </template>
 
 <script>
 import {useVal} from "./useVal";
+import Index from "../index.html";
 
 export default {
   name: "App",
+  components: {Index},
   setup (){
    const {
-     state:{num}, actions:{increment}} = useVal()
+     state:{num, phrase, reversedPhrase}, actions:{increment}} = useVal()
 
     return {
      num,
+      phrase,
+      reversedPhrase,
       increment
     }
   }
