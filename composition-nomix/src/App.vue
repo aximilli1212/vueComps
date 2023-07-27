@@ -11,9 +11,11 @@
 
 <script>
 import {useVal} from "./useVal";
+import Index from "../index.html";
 
 export default {
   name: "App",
+  components: {Index},
   setup (){
    const {
      state:{num, phrase, reversedPhrase}, actions:{increment}} = useVal()
@@ -23,6 +25,7 @@ export default {
       increment,
       phrase,
       reversedPhrase
+
     }
   }
 };

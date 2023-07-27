@@ -23,6 +23,8 @@ export const useVal = ()=>{
         reversedPhrase.value = phrase.value.split("").reverse().join("")
     })
 
+ // NB: Use `ToRefs()` if you want to use the spread operator on a reactive object
+
     return {
         state:{
             num,
