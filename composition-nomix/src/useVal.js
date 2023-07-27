@@ -1,4 +1,4 @@
-import {reactive, ref, watchEffect} from "vue";
+import {reactive, ref} from "vue";
 
 export const useVal = ()=>{
     let num = ref(0)
@@ -6,13 +6,6 @@ export const useVal = ()=>{
     const user = reactive({
         name:"Adenosine",
         address: "Triphosphate"
-    })
-
-    const phrase = ref("")
-    const reversedPhrase = ref("")
-
-    watchEffect(()=>{
-        reversedPhrase.value = phrase.value.split("").reverse().join()
     })
 
     const increment = ()=>{
@@ -32,8 +25,6 @@ export const useVal = ()=>{
         state:{
             num,
             user,
-            phrase,
-            reversedPhrase,
         },
         actions:{
             increment,
