@@ -11,13 +11,13 @@
 
 <script>
 import { useRoute, useRouter } from "vue-router";
-import {useAbout} from "../useAbout";
+import {useCounterStore} from "../stores/counter";
 
 export default {
   setup() {
     const route = useRoute(); // this.$route
     const router = useRouter(); // this.$router
-    const {state:{store}} = useAbout()
+    const store = useCounterStore();
 
     console.log(route.params.member);
 
@@ -26,7 +26,7 @@ export default {
     });
 
     return {
-      store
+     store
     };
   },
 };
