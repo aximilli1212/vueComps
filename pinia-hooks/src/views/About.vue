@@ -12,13 +12,10 @@
 <script setup>
 import { useRoute, useRouter } from "vue-router";
 import {useCounterStore} from "../stores/counter";
-
     const route = useRoute(); // this.$route
     const router = useRouter(); // this.$router
     const store = useCounterStore();
-
     console.log(route.params.member);
-
     router.push({
       hash: "#test",
     })
