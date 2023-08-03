@@ -15,7 +15,7 @@
               />
             </div>
             <div class="mb-2">
-              <EmailInput v-model="newsletterEmail" />
+              <EmailInput v-model:email="newsletterEmail" />
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
