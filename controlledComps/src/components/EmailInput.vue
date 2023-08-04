@@ -3,25 +3,26 @@
       type="email"
       class="form-control"
       placeholder="E-mail"
-      :value="modelValue"
+      :value="email"
       @input="update"
       :class="{
-                  'is-valid':
-                    modelValue.length >= 4 && modelValue.length > 0,
-                  'is-invalid':
-                    modelValue.length < 4 && modelValue.length > 0,
+                  'is-valid': validateEmail(email),
+                  'is-invalid': !validateEmail(email),
                 }"
   />
 </template>
 
 <script>
+import {validateEmail} from "../utils/validateEmail";
+
 export default  {
   name: "EmailInput",
-  props: ['modelValue'],
+  props: ['email'],
   methods:{
     update($event) {
-      this.$emit('update:modelValue', $event.target.value)
-    }
+      this.$emit('update:email', $event.target.value)
+    },
+    validateEmail,
   }
 }
 </script>
