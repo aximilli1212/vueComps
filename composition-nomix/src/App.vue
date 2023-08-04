@@ -14,7 +14,7 @@
   </div>
 </template>
 <script >
-import {onBeforeMount, onMounted, ref} from "vue";
+import {onBeforeMount, onMounted} from "vue";
 import {useVal} from "./useVal";
 import AppAlert from "./components/Alert.vue"
 
@@ -27,9 +27,6 @@ export default {
    const {
      state:{num, phrase, reversedPhrase, double, user, btn}, actions:{increment}} = useVal()
 
-    const btnon = ref(null)
-
-
     onBeforeMount(()=>{
       console.log("on Before Mount.")
     })
@@ -39,10 +36,7 @@ export default {
       btn.value.addEventListener("click", ()=>{
         console.log("ref button was clicked")
       })
-      console.log("Button data Set:: ",btnon)
-      btnon.value.addEventListener("click", ()=>{
-        console.log("ref button on was clicked")
-      })
+
     })
 
     return {
@@ -52,7 +46,6 @@ export default {
       reversedPhrase,
       double,
       user,
-      btnon,
       btn
     }
   }
