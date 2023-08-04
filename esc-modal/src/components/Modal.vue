@@ -25,21 +25,33 @@ export default {
     close() {
       this.$emit("hide");
     },
-  },
-  watch:{
-    show(newVal){
-      if(newVal){
-        this.$nextTick(()=>{
-          this.$refs.modal.focus()
-        })
+    handler(e){
+      if(e.code === 'Escape' && this.show){
+        this.close()
       }
     }
-  }
+  },
+
+  created() {
+    document.addEventListener('keydown', this.handler)
+  },
+  unmounted() {
+    document.removeEventListener('keydown', this.handler)
+  },
+  // watch:{
+  //   show(newVal){
+  //     if(newVal){
+  //       this.$nextTick(()=>{
+  //         this.$refs.modal.focus()
+  //       })
+  //     }
+  //   }
+  // }
 };
 
 </script>
-<style scoped>
-.modal-dialog {
-  outline: 0
-}
-</style>
+<!--<style scoped>-->
+<!--.modal-dialog {-->
+<!--  outline: 0-->
+<!--}-->
+<!--</style>-->
