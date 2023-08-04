@@ -23,7 +23,7 @@ export default {
   components: {EmojiInput},
   data() {
     return {
-      emoji: {},
+      emoji: '',
     };
   },
   methods: {
